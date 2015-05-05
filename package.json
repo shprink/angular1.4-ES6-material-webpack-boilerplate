@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack",
+        "build": "rm -rf www/* && webpack -p",
         "devserver": "webpack-dev-server --port 9100 --progress --colors"
     },
     "repository": {
@@ -27,20 +27,15 @@
     },
     "homepage": "https://github.com/shprink/angular1.4-ES6-material-webpack-boilerplate",
     "devDependencies": {
-        "autoprefixer-loader": "^1.2.0",
         "babel-core": "^5.2.9",
         "babel-loader": "^5.0.0",
         "css-loader": "^0.12.0",
-        "exports-loader": "^0.6.2",
-        "expose-loader": "^0.6.0",
         "file-loader": "^0.8.1",
         "html-loader": "^0.3.0",
         "html-webpack-plugin": "^1.3.0",
         "ng-annotate": "^0.15.4",
         "ng-annotate-webpack-plugin": "^0.1.2",
-        "node-sass": "^2.1.1",
         "path": "^0.11.14",
-        "sass-loader": "^0.6.0",
         "style-loader": "^0.12.1",
         "webpack": "^1.8.11",
         "webpack-dev-server": "^1.8.2"
