@@ -21,7 +21,7 @@
         "angular": "1.4.0-rc.1",
         "angular-animate": "1.4.0-rc.1",
         "angular-aria": "1.4.0-rc.1",
-        "angular-material": "git://github.com/angular/bower-material#v0.9.0-rc3",
+        "angular-material": "git://github.com/angular/bower-material#v0.9.0",
         "angular-ui-router": "^0.2.14",
         "font-awesome": "^4.3.0"
     },
