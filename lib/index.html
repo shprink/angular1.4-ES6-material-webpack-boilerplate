@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>{%=o.htmlWebpackPlugin.options.pkg.title %}</title>
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js"></script>
+    </head>
+
+    <body ng-strict-di ng-app="demo" ng-controller="MainController as main">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+            <div ui-view="sidenav"></div>
+        </md-sidenav>
+        <md-content flex layout-fill layout="column">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="open menu" ng-click="main.toggleSidenav()">
+                        <i class="fa fa-bars"></i>
+                    </md-button>
+                    <h2 flex>
+                        <span>Toolbar</span>
+                    </h2>
+                </div>
+            </md-toolbar>
+            <div ui-view="content" flex layout-fill layout-padding></div>
+        </md-content>
+        {% for (var chunk in o.htmlWebpackPlugin.assets) { %}
+        <script src="{%=o.htmlWebpackPlugin.assets[chunk]%}"></script>
+        {% } %}
+    </body>
+    <!-- {%= o.htmlWebpackPlugin.options.pkg.name + ' v' + o.htmlWebpackPlugin.options.pkg.version + ' built on ' + new Date() %} -->
+
+</html>
