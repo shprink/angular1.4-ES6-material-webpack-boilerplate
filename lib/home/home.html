@@ -1,3 +1,36 @@
-<div layout="row">
-    <p>Welcome!</p>
+<div layout="column" class="gridListdemoDynamicTiles">
+    <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
+        <md-grid-tile ng-repeat="tile in home.tiles" md-rowspan="{{tile.span.row}}" md-colspan="{{tile.span.col}}" md-colspan-sm="1" ng-class="tile.background">
+            <md-grid-tile-footer>
+                <h3>{{tile.title}}</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
 </div>
+<md-fab-speed-dial md-open="demo.isOpen" md-direction="up" class="md-scale">
+    <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn">
+            <md-icon md-font-icon="fa fa-bars"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+        <md-button aria-label="twitter" class="md-fab md-raised md-warn md-mini">
+            <md-icon md-font-icon="fa fa-twitter"></md-icon>
+            <md-tooltip md-direction="left">
+                Twitter
+            </md-tooltip>
+        </md-button>
+        <md-button aria-label="facebook" class="md-fab md-raised md-warn md-mini">
+            <md-icon md-font-icon="fa fa-facebook"></md-icon>
+            <md-tooltip md-direction="left">
+                Facebook
+            </md-tooltip>
+        </md-button>
+        <md-button aria-label="Google hangout" class="md-fab md-raised md-warn md-mini">
+            <md-icon md-font-icon="fa fa-google-plus"></md-icon>
+            <md-tooltip md-direction="left">
+                Google plus
+            </md-tooltip>
+        </md-button>
+    </md-fab-actions>
+</md-fab-speed-dial>

@@ -26,8 +26,8 @@
             </md-toolbar>
             <div ui-view="content" flex layout-fill layout-padding></div>
         </md-content>
-        {% for (var chunk in o.htmlWebpackPlugin.assets) { %}
-        <script src="{%=o.htmlWebpackPlugin.assets[chunk]%}"></script>
+        {% for (var chunk in o.htmlWebpackPlugin.files) { %}
+        <script src="{%=o.htmlWebpackPlugin.files[chunk]%}"></script>
         {% } %}
     </body>
     <!-- {%= o.htmlWebpackPlugin.options.pkg.name + ' v' + o.htmlWebpackPlugin.options.pkg.version + ' built on ' + new Date() %} -->
