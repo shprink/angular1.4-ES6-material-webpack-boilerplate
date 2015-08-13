@@ -3,8 +3,7 @@ var path = require('path'),
     libPath = path.join(__dirname, 'lib'),
     wwwPath = path.join(__dirname, 'www'),
     pkg = require('./package.json'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: path.join(libPath, 'index.js'),
@@ -27,7 +26,8 @@ module.exports = {
             loader: "style!css!autoprefixer!sass"
         }, {
             test: /\.js$/,
-            loader: "babel"
+            exclude: /(node_modules)/,
+            loader: "ng-annotate?add=true!babel"
         }, {
             test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
             loader: 'file?name=fonts/[name].[ext]'
@@ -38,9 +38,6 @@ module.exports = {
             filename: 'index.html',
             pkg: pkg,
             template: path.join(libPath, 'index.html')
-        }),
-        new ngAnnotatePlugin({
-            add: true
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
