@@ -72,3 +72,6 @@
     width: 100%;
     text-align: center;
 }
+
+//I don't know why, but if this is not declared, you'll see little dots on top of the speed dial. The code its the same from the material.angular one, & there is no bug on their code.....strange
+.md-scale .md-fab-action-item { opacity: 0; }
