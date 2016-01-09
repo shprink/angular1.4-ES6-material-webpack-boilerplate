@@ -5,7 +5,8 @@ var path = require('path'),
     pkg = require('./package.json'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+
+var config = {
     entry: path.join(libPath, 'index.js'),
     output: {
         path: path.join(wwwPath),
@@ -34,12 +35,19 @@ module.exports = {
         }]
     },
     plugins: [
+        // HtmlWebpackPlugin: Simplifies creation of HTML files to serve your webpack bundles : https://www.npmjs.com/package/html-webpack-plugin
         new HtmlWebpackPlugin({
             filename: 'index.html',
             pkg: pkg,
             template: path.join(libPath, 'index.html')
         }),
+
+        // OccurenceOrderPlugin: Assign the module and chunk ids by occurrence count. : https://webpack.github.io/docs/list-of-plugins.html#occurenceorderplugin
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
+
+        // Deduplication: find duplicate dependencies & prevents duplicate inclusion : https://github.com/webpack/docs/wiki/optimization#deduplication
+        new webpack.optimize.DedupePlugin()
     ]
 };
+
+module.exports = config;
