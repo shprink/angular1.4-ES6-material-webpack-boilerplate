@@ -21,7 +21,7 @@
         "angular": "~1.4.8",
         "angular-animate": "~1.4.8",
         "angular-aria": "~1.4.8",
-        "angular-material": "1.0.0",
+        "angular-material": "^1.0.0",
         "angular-ui-router": "^0.2.14",
         "font-awesome": "^4.3.0"
     },
